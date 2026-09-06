@@ -31,10 +31,10 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'io.flutter.plugins.videoplayer'
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -48,7 +48,7 @@ android {
     }
 
     dependencies {
-        def exoplayer_version = "1.4.1"
+        def exoplayer_version = "1.11.0"
         compileOnly fileTree(dir: 'libs', include: ['*.aar'])
         implementation "androidx.media3:media3-exoplayer:${exoplayer_version}"
         implementation "androidx.media3:media3-exoplayer-hls:${exoplayer_version}"
