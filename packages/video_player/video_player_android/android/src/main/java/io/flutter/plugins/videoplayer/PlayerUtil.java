@@ -18,6 +18,7 @@ import androidx.media3.common.util.UnstableApi;
 import androidx.media3.datasource.DataSource;
 import androidx.media3.datasource.okhttp.OkHttpDataSource;
 import androidx.media3.exoplayer.DefaultRenderersFactory;
+import io.github.anilbeesetti.nextlib.media3ext.ffdecoder.NextRenderersFactory;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.RenderersFactory;
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
@@ -101,10 +102,11 @@ public class PlayerUtil {
 
     public static void setupVideo(ExoPlayer.Builder builder, HttpVideoAsset asset, Context context) {
         /**
-         * 增加软解码器支持
+         * 增加软解码器支持（集成 FFmpeg 音频扩展，支持 DTS/TrueHD 等格式）
          */
-        DefaultRenderersFactory renderersFactory = new DefaultRenderersFactory(context)
-                .setEnableDecoderFallback(true);
+        NextRenderersFactory renderersFactory = new NextRenderersFactory(context);
+        renderersFactory.setEnableDecoderFallback(true);
+        renderersFactory.setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_ON);
         builder.setRenderersFactory(renderersFactory);
 
         DefaultTrackSelector trackSelector = new DefaultTrackSelector(context);

@@ -56,7 +56,7 @@ android {
         implementation "androidx.media3:media3-exoplayer-rtsp:${exoplayer_version}"
         implementation "androidx.media3:media3-exoplayer-smoothstreaming:${exoplayer_version}"
         implementation "androidx.media3:media3-datasource-okhttp:${exoplayer_version}"
-//        implementation "com.github.anilbeesetti.nextlib:nextlib-media3ext:0.8.2"
+        implementation "io.github.anilbeesetti:nextlib-media3ext:1.11.0-0.14.0"
 //        implementation "com.github.anilbeesetti.nextlib:nextlib-mediainfo:0.8.2"
         implementation group: 'dnsjava', name: 'dnsjava', version: '3.5.3'
         testImplementation 'junit:junit:4.13.2'
